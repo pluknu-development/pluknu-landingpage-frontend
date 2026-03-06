@@ -1,7 +1,254 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito:wght@200..1000&display=swap");
+/* 1. Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "tailwindcss";
 
+/* 2. Tailwind v4 Bron-detectie */
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+
+:root {
+  /* Font Families Koppelen aan Variabelen */
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-nunito: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand colors */
+  --primary-default: #0F3D2E;
+  --secondary-default: #6FAF3A;
+  --tertiary-default: #F57126;
+
+  /* Theme Colors - Primary */
+  --primary-lightest: #F6FBF4;
+  --primary-lighter: #EAF5E6;
+  --primary-darker: #0B3225;
+  --primary-darkest: #092C20;
+
+  /* Theme Colors - Secondary */
+  --secondary-lightest: #C1EC9E;
+  --secondary-lighter: #94D260;
+  --secondary-darker: #5A9826;
+  --secondary-darkest: #477F18;
+
+  /* Theme Colors - Tertiary */
+  --tertiary-lightest: #FFE7DA;
+  --tertiary-lighter: #FBB085;
+  --tertiary-darker: #DA5910;
+  --tertiary-darkest: #C24600;
+
+  /* Typography colors */
+  --on-light-default: #141418;
+  --on-light-alt: #3E3E3E;
+  --on-light-muted: #787878;
+  --on-dark-default: #E5E7EB;
+  --on-dark-alt: #F9FAFB;
+  --on-dark-muted: #9CA3AF;
+
+  /* Status Colors - Information */
+  --information-light: #EEF3FD;
+  --information-default: #89A8E2;
+  --information-darkest: #2D5AAB;
+
+  /* Status Colors - Error */
+  --error-light: #FFEEEE;
+  --error-default: #F58989;
+  --error-darkest: #D91417;
+
+  /* Status Colors - Success */
+  --success-light: #F0F8F1;
+  --success-default: #5BCA74;
+  --success-darkest: #136835;
+
+  /* Status Colors - Warning */
+  --warning-light: #FEF5EB;
+  --warning-default: #FF9039;
+  --warning-darkest: #B95000;
+
+  /* Default Background/Foreground */
+  --background: #ffffff;
+  --foreground: #141418;
+}
+
 @theme {
-  --font-body: "Manrope", system-ui;
-  --font-heading: "Nunito", system-ui;
+  /* Typography Scale */
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 1.5;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.15;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.15;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.15;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.15;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.15;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1.15;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1.15;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1.15;
+
+  /* Brand colors Mapping naar Tailwind Classes */
+  --color-primary-default: var(--primary-default);
+  --color-secondary-default: var(--secondary-default);
+  --color-tertiary-default: var(--tertiary-default);
+
+  /* Theme Colors Mapping */
+  --color-primary-lightest: var(--primary-lightest);
+  --color-primary-lighter: var(--primary-lighter);
+  --color-primary-darker: var(--primary-darker);
+  --color-primary-darkest: var(--primary-darkest);
+
+  --color-secondary-lightest: var(--secondary-lightest);
+  --color-secondary-lighter: var(--secondary-lighter);
+  --color-secondary-darker: var(--secondary-darker);
+  --color-secondary-darkest: var(--secondary-darkest);
+
+  --color-tertiary-lightest: var(--tertiary-lightest);
+  --color-tertiary-lighter: var(--tertiary-lighter);
+  --color-tertiary-darker: var(--tertiary-darker);
+  --color-tertiary-darkest: var(--tertiary-darkest);
+
+  /* Typography Colors Mapping */
+  --color-on-light-default: var(--on-light-default);
+  --color-on-light-alt: var(--on-light-alt);
+  --color-on-light-muted: var(--on-light-muted);
+  --color-on-dark-default: var(--on-dark-default);
+  --color-on-dark-alt: var(--on-dark-alt);
+  --color-on-dark-muted: var(--on-dark-muted);
+
+  /* Status Colors Mapping */
+  --color-information-light: var(--information-light);
+  --color-information-default: var(--information-default);
+  --color-information-darkest: var(--information-darkest);
+  --color-error-light: var(--error-light);
+  --color-error-default: var(--error-default);
+  --color-error-darkest: var(--error-darkest);
+  --color-success-light: var(--success-light);
+  --color-success-default: var(--success-default);
+  --color-success-darkest: var(--success-darkest);
+  --color-warning-light: var(--warning-light);
+  --color-warning-default: var(--warning-default);
+  --color-warning-darkest: var(--warning-darkest);
+
+  /* Font Families Mapping */
+  --font-body: var(--font-manrope);
+  --font-heading: var(--font-nunito);
+}
+
+/* Dark Mode Configuratie */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Base Styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope);
+  -webkit-font-smoothing: antialiased;
+}
+
+.force-light {
+  --background: #ffffff;
+  --foreground: #141418;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Animatie voor formulieren */
+@keyframes inputselect-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-intro {
+  opacity: 0;
+  animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translateY(32px) scale(0.985);
+}
+
+.reveal-left {
+  transform: translateX(-36px) scale(0.985);
+}
+
+.reveal-right {
+  transform: translateX(36px) scale(0.985);
+}
+
+.reveal-zoom {
+  transform: scale(0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-intro,
+  .reveal {
+    opacity: 1;
+    animation: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Onderaan in src/index.css */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7.5rem;
+  }
 }
