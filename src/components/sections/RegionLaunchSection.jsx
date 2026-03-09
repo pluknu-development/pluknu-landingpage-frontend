@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { useState } from "react";
 import Reveal from "../ui/Reveal";
 
 const benefitItems = [
@@ -8,8 +9,37 @@ const benefitItems = [
 ];
 
 function RegionLaunchSection() {
-  const handleSubmit = (event) => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await fetch("/.netlify/functions/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage("Bedankt voor je aanmelding! Controleer je email.");
+        setEmail("");
+      } else {
+        setMessage(data.error || "Er is iets misgegaan.");
+      }
+    } catch (error) {
+      setMessage("Er is iets misgegaan. Probeer het later opnieuw.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,14 +70,21 @@ function RegionLaunchSection() {
                   className="min-w-0 flex-1 rounded-lg border-2 border-gray-200 bg-primary-lighter p-4 text-lg text-on-light-default transition duration-150 placeholder:text-on-light-muted focus:scale-102 focus:border-secondary-default focus:outline-0 max-md:p-3.5 max-md:text-base"
                   placeholder="Je e-mailadres"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
                 <button
-                  className="cursor-pointer flex items-center justify-center rounded-lg bg-secondary-default p-4 text-lg text-white transition duration-150 hover:bg-secondary-darker max-md:w-full max-md:p-3.5 max-md:text-base"
+                  className="cursor-pointer flex items-center justify-center rounded-lg bg-secondary-default p-4 text-lg text-white transition duration-150 hover:bg-secondary-darker disabled:opacity-50 max-md:w-full max-md:p-3.5 max-md:text-base"
                   type="submit"
+                  disabled={loading}
                 >
-                  Ja, ik doe mee
+                  {loading ? "Verzenden..." : "Ja, ik doe mee"}
                 </button>
               </form>
+              {message && 
+                  <p className="text-center text-sm text-white">{message}</p>
+              }
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 max-md:mt-6 max-md:items-start max-md:justify-start">
