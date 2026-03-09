@@ -1,0 +1,14 @@
+Options -MultiViews
+
+RewriteEngine On
+
+# Keep the existing frontend path for the signup endpoint.
+RewriteRule ^\.netlify/functions/send-email/?$ /.netlify/functions/send-email.php [L,QSA]
+
+# Serve existing files and directories directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback all other requests to the SPA entrypoint.
+RewriteRule ^ index.html [L]
