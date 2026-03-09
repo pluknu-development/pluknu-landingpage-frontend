@@ -1,8 +1,38 @@
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 function SignupCard() {
-  const handleSubmit = (event) => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await fetch("/.netlify/functions/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage("Bedankt voor je aanmelding! Controleer je email.");
+        setEmail("");
+      } else {
+        setMessage(data.error || "Er is iets misgegaan.");
+      }
+    } catch (error) {
+      setMessage("Er is iets misgegaan. Probeer het later opnieuw.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -14,14 +44,19 @@ function SignupCard() {
         <input
           className="rounded-xl border-2 border-gray-200 bg-primary-lighter p-4 text-lg transition duration-150 focus:scale-102 focus:border-secondary-default focus:outline-0 max-md:p-3.5 max-md:text-base"
           placeholder="Je e-mailadres"
-          type="text"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <button
-          className="flex cursor-pointer items-center justify-center gap-4 rounded-xl bg-secondary-default p-4 text-lg text-white transition duration-150 hover:bg-secondary-darker max-md:p-3.5 max-md:text-base"
+          className="flex cursor-pointer items-center justify-center gap-4 rounded-xl bg-secondary-default p-4 text-lg text-white transition duration-150 hover:bg-secondary-darker disabled:opacity-50 max-md:p-3.5 max-md:text-base"
           type="submit"
+          disabled={loading}
         >
-          Ja, ik ga plukken <ArrowRight />
+          {loading ? "Verzenden..." : "Ja, ik ga plukken"} <ArrowRight />
         </button>
+        {message && <p className="text-center text-sm">{message}</p>}
       </form>
     </div>
   );
