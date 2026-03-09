@@ -1,16 +1,39 @@
-# React + Vite
+# PlukNu landing page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deploy
 
-Currently, two official plugins are available:
+GitHub Actions deploys this site on every push to `main` and mirrors the built `dist/` output to the TransIP webroot at `/data/sites/web/pluknunl/www`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Required GitHub Actions secrets:
 
-## React Compiler
+- `DEPLOY_HOST`
+- `DEPLOY_PORT`
+- `DEPLOY_USER`
+- `DEPLOY_SSH_KEY`
+- `DEPLOY_PATH`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Set `DEPLOY_PATH` to `/data/sites/web/pluknunl/www`.
 
-## Expanding the ESLint configuration
+## Mail endpoint on shared hosting
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The frontend keeps posting to `/.netlify/functions/send-email`. On shared hosting, Apache rewrites that route to [`public/.netlify/functions/send-email.php`](/c:/laragon/www/pluknu-landingpage-frontend/public/.netlify/functions/send-email.php), which calls the Brevo API server-side.
+
+Configure the Brevo API key in one of these ways:
+
+1. Expose `BREVO_API_KEY` as an environment variable in hosting.
+2. Set `BREVO_CONFIG_PATH` to a PHP file outside the webroot that returns `['api_key' => '...']`.
+
+The deployed [`public/.htaccess`](/c:/laragon/www/pluknu-landingpage-frontend/public/.htaccess) also provides SPA routing back to `index.html`.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
