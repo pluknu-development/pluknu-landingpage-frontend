@@ -8,6 +8,10 @@ const benefitItems = [
 ];
 
 function RegionLaunchSection() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <section id="ja-ik-doe-mee" className="w-full bg-white scroll-mt-32">
       <div className="mx-auto w-full max-w-440 px-10 py-16 max-md:px-5 max-md:py-16">
@@ -31,7 +35,7 @@ function RegionLaunchSection() {
                 Behoor tot de 100 aanbieders op PlukNu en ontvang een exclusief pluk-pakket!
               </p>
 
-              <form className="flex gap-3 max-md:flex-col">
+              <form className="flex gap-3 max-md:flex-col" onSubmit={handleSubmit}>
                 <input
                   className="min-w-0 flex-1 rounded-lg border-2 border-gray-200 bg-primary-lighter p-4 text-lg text-on-light-default transition duration-150 placeholder:text-on-light-muted focus:scale-102 focus:border-secondary-default focus:outline-0 max-md:p-3.5 max-md:text-base"
                   placeholder="Je e-mailadres"

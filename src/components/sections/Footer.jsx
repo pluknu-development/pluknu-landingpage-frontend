@@ -1,11 +1,11 @@
 import { navLinks } from "../../constants/navigation";
 import Reveal from "../ui/Reveal";
 
-function Footer() {
+function Footer({ homePrefix = "", legalHref = "/algemene-voorwaarden.html" }) {
   return (
     <footer className="w-full bg-white">
       <Reveal className="gap-12 mx-auto flex w-full max-w-440 flex-col items-center px-10 pb-10 pt-14 max-md:px-5 max-md:pb-8 max-md:pt-10">
-        <a href="#top" aria-label="Ga naar boven">
+        <a href={`${homePrefix}#top`} aria-label="Ga naar boven">
           <img
             className="h-20 w-auto max-md:h-12"
             src="/images/pluk-nu-logo-dark.svg"
@@ -18,7 +18,7 @@ function Footer() {
             <a
               key={link.label}
               className="text-md text-on-light-alt transition duration-150 hover:text-primary-default"
-              href={link.href}
+              href={`${homePrefix}${link.href}`}
             >
               {link.label}
             </a>
@@ -29,7 +29,7 @@ function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-on-light-muted">
             <span>2026 PlukNu, Alle rechten voorbehouden</span>
             <span>|</span>
-            <a className="transition duration-150 hover:text-primary-default" href="#">
+            <a className="transition duration-150 hover:text-primary-default" href={legalHref}>
               Algemene voorwaarden
             </a>
           </div>

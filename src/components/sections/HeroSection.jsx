@@ -89,7 +89,7 @@ function HeroSection() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-190 hidden max-lg:block transition-all duration-300 ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-[190] hidden max-lg:block transition-all duration-300 ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       >
         <button
           aria-label="Sluit menu"
@@ -127,14 +127,14 @@ function HeroSection() {
           <div className="flex max-w-3xl flex-col gap-9 max-[1050px]:items-center max-md:gap-6">
             <h1
               className="hero-intro text-on-dark-default font-heading text-7xl font-bold text-balance 2xl:text-6xl max-[1180px]:text-6xl max-[1050px]:max-w-4xl max-[1050px]:text-5xl max-md:text-[2.45rem] max-md:leading-[1.02]"
-              style={{ animationDelay: "80ms" }}
+              style={{ animationDelay: "30ms" }}
             >
               Iedereen een eerlijke oogst, gedeeld met en vanuit de buurt.
             </h1>
 
             <p
               className="hero-intro max-w-2xl text-xl text-on-dark-default max-[1180px]:text-lg max-[1050px]:max-w-3xl max-md:text-base max-md:leading-relaxed"
-              style={{ animationDelay: "180ms" }}
+              style={{ animationDelay: "90ms" }}
             >
               Bied aan of koop lokale groenten, fruit, kruiden, honing en noten op
               PlukNu, altijd vers en lokaal bij u in de buurt. Van persoon tot
@@ -143,7 +143,7 @@ function HeroSection() {
 
             <div
               className="hero-intro flex w-fit items-center gap-4 rounded-2xl border border-white/18 bg-white/8 p-4 pr-8 shadow-[0_24px_80px_rgba(7,23,17,0.18)] backdrop-blur-sm max-[1050px]:w-full max-[1050px]:max-w-2xl max-[1050px]:justify-start max-[1050px]:text-left max-[1050px]:pr-4 max-md:items-start"
-              style={{ animationDelay: "280ms" }}
+              style={{ animationDelay: "150ms" }}
             >
               <div className="rounded-full bg-secondary-default p-5 shadow-lg shadow-secondary-default/25 max-[1050px]:p-4">
                 <Sprout size={22} className="text-white" />
@@ -160,7 +160,7 @@ function HeroSection() {
 
             <div
               className="hero-intro hidden w-full max-w-2xl max-[1050px]:block"
-              style={{ animationDelay: "380ms" }}
+              style={{ animationDelay: "180ms" }}
             >
               <SignupCard />
             </div>
@@ -168,7 +168,7 @@ function HeroSection() {
 
           <div
             className="hero-intro flex flex-wrap gap-3 max-[1050px]:justify-center max-md:grid max-md:w-full max-md:grid-cols-1"
-            style={{ animationDelay: "460ms" }}
+            style={{ animationDelay: "210ms" }}
           >
             {heroBenefits.map((item) => (
               <span
@@ -184,7 +184,7 @@ function HeroSection() {
 
         <div
           className="hero-intro hidden basis-[40%] py-4 min-[1051px]:block min-[1051px]:py-0"
-          style={{ animationDelay: "360ms" }}
+          style={{ animationDelay: "180ms" }}
         >
           <SignupCard />
         </div>

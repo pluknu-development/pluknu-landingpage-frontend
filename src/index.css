@@ -183,41 +183,41 @@ body {
 @keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(28px) scale(0.985);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 .hero-intro {
   opacity: 0;
-  animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: hero-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .reveal {
   opacity: 0;
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
 .reveal-up {
-  transform: translateY(32px) scale(0.985);
+  transform: translateY(18px);
 }
 
 .reveal-left {
-  transform: translateX(-36px) scale(0.985);
+  transform: translateX(-18px);
 }
 
 .reveal-right {
-  transform: translateX(36px) scale(0.985);
+  transform: translateX(18px);
 }
 
 .reveal-zoom {
-  transform: scale(0.94);
+  transform: scale(0.985);
 }
 
 .reveal.is-visible {
