@@ -1,12 +1,12 @@
-import { BadgeCheck, UsersRound } from "lucide-react";
+import { ShoppingBag, UsersRound } from "lucide-react";
 import PartnerCard from "../ui/PartnerCard";
 import Reveal from "../ui/Reveal";
 
 function ExperienceSection() {
   return (
     <section id="ervaren-plukkers" className="w-full bg-primary-lightest">
-      <div className="mx-auto flex w-full max-w-440 flex-col items-center gap-8 px-10 py-24 max-md:px-5 max-md:py-16">
-        <Reveal className="w-full flex flex-col items-center" delay={40}>
+      <div className="mx-auto flex w-full max-w-440 flex-col items-center gap-14 px-10 py-24 max-md:px-5 max-md:py-16">
+        <Reveal className="w-full flex flex-col items-center gap-8" delay={40}>
         <span className="rounded-full bg-white px-5 py-1.5 text-sm font-semibold text-primary-default">
           Ervaren in moestuinen
         </span>
@@ -33,7 +33,7 @@ function ExperienceSection() {
               imageAlt="Profielfoto partner moeswereld"
               title="Partners vanuit moestuin wereld"
               description="Toonaangevende webshops voor producten voor de moestuin"
-              metaIcon={BadgeCheck}
+              metaIcon={ShoppingBag}
               metaText="Pluk partner worden"
             />
           </Reveal>

@@ -62,7 +62,7 @@ function RegionLaunchSection() {
 
             <div className="w-full flex flex-col gap-8 max-w-2xl rounded-[1.4rem] bg-white/10 p-8 backdrop-blur-[2px] max-md:mt-8 max-md:rounded-2xl max-md:p-4">
               <p className="mx-auto max-w-xl text-center text-xl font-bold text-on-dark-alt max-md:text-base">
-                Behoor tot de 100 aanbieders op PlukNu en ontvang een exclusief pluk-pakket!
+                Behoor tot de 100 aanbieders op PlukNu en ontvang een exclusief pluk-pakket! 🥕
               </p>
 
               <form className="flex gap-3 max-md:flex-col" onSubmit={handleSubmit}>

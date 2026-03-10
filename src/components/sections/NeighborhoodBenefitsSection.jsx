@@ -19,13 +19,13 @@ const benefits = [
     icon: Heart,
     title: "Eerlijk en lokaal vanuit jou buurt",
     description:
-      "Wat de één over heeft, kan de ander goed gebruiken. Zo ontstaat een buurt waar mensen elkaar helpen en verspilling verminderen.",
+      "Wat de één over heeft, kan de ander goed gebruiken. Zo ontstaat een buurt waar mensen elkaar helpen, verspilling verminderen en samen zorgen voor eerlijk, lokaal voedsel dat dichtbij blijft. ",
   },
   {
     icon: Leaf,
     title: "Wekelijks nieuwe recepten",
     description:
-      "Voor elke groente in jouw buurt verschijnen regelmatig nieuwe recepten. Zo haal je meer uit je lokale oogst.",
+      "Voor elke groente die in jouw buurt wordt aangeboden, verschijnen meerdere inspirerende recepten. Zo haal je meer uit de lokale oogst en kook je met wat het seizoen brengt.",
     badge: "Binnenkort beschikbaar",
   },
 ];

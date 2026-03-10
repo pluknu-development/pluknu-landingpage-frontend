@@ -89,7 +89,7 @@ function HeroSection() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-[190] hidden max-lg:block transition-all duration-300 ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-190 hidden max-lg:block transition-all duration-300 ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       >
         <button
           aria-label="Sluit menu"
@@ -121,7 +121,7 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-440 grow gap-18 px-10 py-12 2xl:gap-14 max-[1180px]:gap-10 max-[1050px]:flex-col max-[1050px]:px-5 max-[1050px]:pb-10 max-[1050px]:pt-4">
+      <div className="relative z-10 mx-auto flex w-full max-w-440 grow justify-between px-10 pt-20 pb-12 max-[1050px]:flex-col max-[1050px]:px-5 max-[1050px]:pb-10 max-[1050px]:pt-4">
         <img className="absolute bottom-0 right-10 h-75 2xl:right-6 2xl:h-68 max-[1400px]:hidden" src="/images/hero_cards.png" alt="PlukNu cards" />
         <div className="flex basis-[56%] flex-col justify-between gap-12 max-[1050px]:basis-auto max-[1050px]:items-center max-[1050px]:text-center max-md:gap-8">
           <div className="flex max-w-3xl flex-col gap-9 max-[1050px]:items-center max-md:gap-6">
@@ -142,18 +142,18 @@ function HeroSection() {
             </p>
 
             <div
-              className="hero-intro flex w-fit items-center gap-4 rounded-2xl border border-white/18 bg-white/8 p-4 pr-8 shadow-[0_24px_80px_rgba(7,23,17,0.18)] backdrop-blur-sm max-[1050px]:w-full max-[1050px]:max-w-2xl max-[1050px]:justify-start max-[1050px]:text-left max-[1050px]:pr-4 max-md:items-start"
+              className="hero-intro flex w-fit items-center gap-4 rounded-2xl border border-white/18 p-4 pr-8 max-[1050px]:w-full max-[1050px]:max-w-2xl max-[1050px]:justify-start max-[1050px]:text-left max-[1050px]:pr-4 max-md:items-start"
               style={{ animationDelay: "150ms" }}
             >
-              <div className="rounded-full bg-secondary-default p-5 shadow-lg shadow-secondary-default/25 max-[1050px]:p-4">
+              <div className="rounded-full bg-secondary-default p-5">
                 <Sprout size={22} className="text-white" />
               </div>
               <div className="flex flex-col gap-1">
                 <p className="text-lg font-bold text-on-dark-alt max-[1050px]:text-base max-md:leading-snug">
-                  Behoor tot de eerste 100 plukkers en krijg gratis punten
+                  Behoor tot de eerste 100 aanbieders op PlukNu
                 </p>
                 <p className="text-on-dark-default max-[1050px]:text-sm">
-                  Ruil ze in voor gratis zaden en begin met zaaien!
+                  Je ontvangt een exclusief pluk-pakket voor de start! 🌱
                 </p>
               </div>
             </div>
@@ -167,13 +167,13 @@ function HeroSection() {
           </div>
 
           <div
-            className="hero-intro flex flex-wrap gap-3 max-[1050px]:justify-center max-md:grid max-md:w-full max-md:grid-cols-1"
+            className="hero-intro flex flex-wrap gap-6 max-[1050px]:justify-center max-md:grid max-md:w-full max-md:grid-cols-1"
             style={{ animationDelay: "210ms" }}
           >
             {heroBenefits.map((item) => (
               <span
                 key={item}
-                className="flex items-center gap-2 rounded-full border border-white/14 bg-black/10 px-4 py-2 text-base text-white backdrop-blur-sm max-[1050px]:justify-center max-[1050px]:text-sm max-md:rounded-2xl max-md:justify-start"
+                className="flex items-center gap-2 text-base text-white backdrop-blur-sm max-[1050px]:justify-center max-[1050px]:text-sm max-md:rounded-2xl max-md:justify-start"
               >
                 <Check className="shrink-0 text-secondary-default" size={18} />
                 {item}
@@ -183,7 +183,7 @@ function HeroSection() {
         </div>
 
         <div
-          className="hero-intro hidden basis-[40%] py-4 min-[1051px]:block min-[1051px]:py-0"
+          className="hero-intro hidden basis-[40%] py-4 min-[1051px]:block min-[1051px]:py-0 h-full mt-36"
           style={{ animationDelay: "180ms" }}
         >
           <SignupCard />

@@ -37,8 +37,8 @@ function SignupCard() {
 
   return (
     <div className="flex w-full flex-col gap-8 rounded-4xl border border-white/70 bg-white p-8 shadow-[0_24px_80px_rgba(10,32,24,0.18)] max-md:gap-5 max-md:rounded-[1.6rem] max-md:p-5">
-      <h2 className="text-3xl font-bold text-primary-default max-md:text-xl max-md:leading-tight">
-        Ben jij een van de plukkers in IJselmuiden?
+      <h2 className="text-2xl font-bold text-primary-default max-md:text-xl max-md:leading-tight">
+        Behoor tot de 100 aanbieders op PlukNu en ontvang een exclusief pluk-pakket! 🥕
       </h2>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <input
@@ -54,7 +54,7 @@ function SignupCard() {
           type="submit"
           disabled={loading}
         >
-          {loading ? "Verzenden..." : "Ja, ik ga plukken"} <ArrowRight />
+          {loading ? "Verzenden..." : "Ja, ik doe mee en wil het ervaren"} <ArrowRight />
         </button>
         {message && <p className="text-center text-sm">{message}</p>}
       </form>
